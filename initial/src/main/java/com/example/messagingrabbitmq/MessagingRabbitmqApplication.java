@@ -1,12 +1,13 @@
 package com.example.messagingrabbitmq;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@Configuration
+@SpringBootApplication
 public class MessagingRabbitmqApplication {
 
 	public static void main(String[] args) throws InterruptedException {
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MessagingRabbitmqApplication.class);
+		SpringApplication.run(MessagingRabbitmqApplication.class, args);
 	}
+
 }

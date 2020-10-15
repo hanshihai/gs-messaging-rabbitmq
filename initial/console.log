@@ -1,0 +1,14 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.2.RELEASE)
+
+2020-10-15 16:56:48.645  INFO 7892 --- [           main] c.e.m.MessagingRabbitmqApplication       : Starting MessagingRabbitmqApplication on HANS19-L1 with PID 7892 (C:\repository\gs-messaging-rabbitmq\initial\target\classes started by hans19 in C:\repository\gs-messaging-rabbitmq)
+2020-10-15 16:56:48.649  INFO 7892 --- [           main] c.e.m.MessagingRabbitmqApplication       : The following profiles are active: local
+2020-10-15 16:56:49.329  INFO 7892 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: localhost:5672
+2020-10-15 16:56:49.391  INFO 7892 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: connectionFactory#4b40f651:0/SimpleConnection@1e7aa82b [delegate=amqp://guest@127.0.0.1:5672/local, localPort= 58944]
+2020-10-15 16:56:49.445  INFO 7892 --- [           main] c.e.m.MessagingRabbitmqApplication       : Started MessagingRabbitmqApplication in 1.124 seconds (JVM running for 2.596)

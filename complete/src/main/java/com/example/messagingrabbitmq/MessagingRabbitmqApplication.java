@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class MessagingRabbitmqApplication {
 
-	static final String topicExchangeName = "spring-boot-exchange";
+	static final String topicExchangeName = "TopicExchange";
 
-	static final String queueName = "spring-boot";
+	static final String queueName = "CC-DistributorConfigurationEvent-Queue";
 
 	@Bean
 	Queue queue() {
@@ -30,7 +30,7 @@ public class MessagingRabbitmqApplication {
 
 	@Bean
 	Binding binding(Queue queue, TopicExchange exchange) {
-		return BindingBuilder.bind(queue).to(exchange).with("foo.bar.#");
+		return BindingBuilder.bind(queue).to(exchange).with("AppConfigurationEvent");
 	}
 
 	@Bean
