@@ -16,7 +16,7 @@ import java.util.concurrent.CountDownLatch;
 @Component
 public class Receiver {
 
-	@Autowired
+	@Autowired(required = false)
 	private MongoTemplate mongoTemplate;
 
 	@Value("${spring.mongodb.enable}") boolean enableSave;
