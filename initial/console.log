@@ -7,13 +7,35 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2020-11-23 16:26:37.241  INFO 696 --- [           main] c.e.m.MessagingRabbitmqApplication       : Starting MessagingRabbitmqApplication on HANS19-L1 with PID 696 (C:\repository\gs-messaging-rabbitmq\initial\target\classes started by hans19 in C:\repository\gs-messaging-rabbitmq)
-2020-11-23 16:26:37.243  INFO 696 --- [           main] c.e.m.MessagingRabbitmqApplication       : The following profiles are active: local
-2020-11-23 16:26:37.616  INFO 696 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2020-11-23 16:26:37.633  INFO 696 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 MongoDB repository interfaces.
-2020-11-23 16:26:37.830  INFO 696 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2020-11-23 16:26:37.908  INFO 696 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:9}] to localhost:27017
-2020-11-23 16:26:37.913  INFO 696 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=3954300}
-2020-11-23 16:26:38.266  INFO 696 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: localhost:5672
-2020-11-23 16:26:38.298  INFO 696 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: connectionFactory#3174cb09:0/SimpleConnection@3961a41a [delegate=amqp://guest@127.0.0.1:5672/local, localPort= 57307]
-2020-11-23 16:26:38.358  INFO 696 --- [           main] c.e.m.MessagingRabbitmqApplication       : Started MessagingRabbitmqApplication in 1.446 seconds (JVM running for 2.958)
+2020-12-11 12:36:38.261  INFO 32388 --- [           main] c.e.m.MessagingRabbitmqApplication       : Starting MessagingRabbitmqApplication on HANS19-L1 with PID 32388 (C:\repository\gs-messaging-rabbitmq\initial\target\classes started by hans19 in C:\repository\gs-messaging-rabbitmq)
+2020-12-11 12:36:38.264  INFO 32388 --- [           main] c.e.m.MessagingRabbitmqApplication       : The following profiles are active: local
+2020-12-11 12:36:38.708  INFO 32388 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-12-11 12:36:38.728  INFO 32388 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 MongoDB repository interfaces.
+2020-12-11 12:36:38.963  INFO 32388 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-12-11 12:36:39.532  INFO 32388 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: localhost:5672
+2020-12-11 12:36:39.570  INFO 32388 --- [           main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: connectionFactory#2acbc859:0/SimpleConnection@1f0b3cfe [delegate=amqp://guest@127.0.0.1:5672/local, localPort= 65371]
+2020-12-11 12:36:39.637  INFO 32388 --- [           main] c.e.m.MessagingRabbitmqApplication       : Started MessagingRabbitmqApplication in 1.833 seconds (JVM running for 3.63)
+2020-12-11 12:36:47.179  INFO 32388 --- [localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
+
+com.mongodb.MongoSocketOpenException: Exception opening socket
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:70) ~[mongodb-driver-core-4.0.5.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:127) ~[mongodb-driver-core-4.0.5.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:117) ~[mongodb-driver-core-4.0.5.jar:na]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_65]
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[na:1.8.0_65]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[na:1.8.0_65]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_65]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_65]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_65]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_65]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_65]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_65]
+	at com.mongodb.internal.connection.SocketStreamHelper.initialize(SocketStreamHelper.java:63) ~[mongodb-driver-core-4.0.5.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:79) ~[mongodb-driver-core-4.0.5.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:65) ~[mongodb-driver-core-4.0.5.jar:na]
+	... 3 common frames omitted
+
+2020-12-11 12:37:02.173  INFO 32388 --- [extShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2020-12-11 12:37:02.523  INFO 32388 --- [extShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2020-12-11 12:37:02.526  INFO 32388 --- [extShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is not active already
