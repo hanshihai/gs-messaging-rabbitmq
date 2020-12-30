@@ -16,6 +16,8 @@ public class Runner implements CommandLineRunner {
 
     @Value("${spring.rabbitmq.disable.queue}") private boolean disableRetrieve;
 
+    @Value("${spring.rabbitmq.disable.send}") private boolean disableSend;
+
     @Value("${spring.rabbitmq.send.typeId}") private String typeId;
 
     @Value("${spring.rabbitmq.send.inputFile}") private String inputFile;
@@ -32,17 +34,19 @@ public class Runner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), "UTF-8"));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                try {
-                    rabbitTemplate.convertAndSend(topicExchangeName, routingKey, line, m -> {
-                        m.getMessageProperties().getHeaders().put("__TypeId__", typeId);
-                        m.getMessageProperties().setContentType("application/json");
-                        return m;
-                    });
-                }catch(Exception e) {
-                    e.printStackTrace();
+            if (!disableSend) {
+                reader = new BufferedReader(new InputStreamReader(new FileInputStream(inputFile), "UTF-8"));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    try {
+                        rabbitTemplate.convertAndSend(topicExchangeName, routingKey, line, m -> {
+                            m.getMessageProperties().getHeaders().put("__TypeId__", typeId);
+                            m.getMessageProperties().setContentType("application/json");
+                            return m;
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
