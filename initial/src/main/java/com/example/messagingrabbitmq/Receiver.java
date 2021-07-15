@@ -53,7 +53,7 @@ public class Receiver {
 		}else{
 			System.out.println("Received < null >");
 		}
-		latch.countDown();
+		//latch.countDown();
 	}
 
 	public CountDownLatch getLatch() {

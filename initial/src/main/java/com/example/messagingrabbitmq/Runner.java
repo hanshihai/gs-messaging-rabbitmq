@@ -47,11 +47,12 @@ public class Runner implements CommandLineRunner {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    Thread.sleep(3000);
                 }
             }
 
             if (!disableRetrieve) {
-                receiver.getLatch().await(300000, TimeUnit.MILLISECONDS);
+                receiver.getLatch().await(5, TimeUnit.MINUTES);
             }
         } finally {
             if(reader != null) {

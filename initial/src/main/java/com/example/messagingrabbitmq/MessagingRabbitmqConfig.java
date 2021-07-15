@@ -37,11 +37,12 @@ public class MessagingRabbitmqConfig {
     @Bean
     public ConnectionFactory connectionFactory(
             @Value("${spring.rabbitmq.host}") String rabbitHost,
+            @Value("${spring.rabbitmq.port}") int rabbitPort,
             @Value("${spring.rabbitmq.username}") String userName,
             @Value("${spring.rabbitmq.password}") String rabbitPassword,
             @Value("${spring.rabbitmq.virtualHost}") String virtualHost) {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
-        this.populateConnectionFactoryAttributes(connectionFactory, rabbitHost, userName, rabbitPassword, virtualHost);
+        this.populateConnectionFactoryAttributes(connectionFactory, rabbitHost, rabbitPort, userName, rabbitPassword, virtualHost);
         return connectionFactory;
     }
 
@@ -61,8 +62,9 @@ public class MessagingRabbitmqConfig {
     }
 
     private void populateConnectionFactoryAttributes (
-            CachingConnectionFactory connectionFactory, String host, String userName, String password, String virtualHost){
+            CachingConnectionFactory connectionFactory, String host, int port, String userName, String password, String virtualHost){
         connectionFactory.setHost(host);
+        connectionFactory.setPort(port);
         connectionFactory.setUsername(userName);
         connectionFactory.setPassword(password);
         connectionFactory.setVirtualHost(virtualHost);
